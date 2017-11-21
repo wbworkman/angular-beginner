@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        //1.定义应用 
+        //2.初始化应用 将应用以模块化的方式进行管理
+        //3.MVC设计模式
+        var App = angular.module('app',[]);
+        //appController将视图与模型关联起来  $scope 就可以理解成一个模型
+        App.controller('appController',['$scope',function ($scope) {
+            $scope.username = 'angualr';
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <!-- <p>{{username}}</p> -->
+    {{username}}
+</body>
+</html>

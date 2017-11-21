@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(1, 1, 1, .5);
+            animation: yundong 2s linear infinite;
+        }
+        @keyframes yundong {
+            0%{
+                width: 200px;
+            }
+            50% {
+                height: 200px;
+            }
+            100% {
+                background-color: rebeccapurple;
+            }
+        }
+    </style>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]);
+        App.controller('appController',['$scope',function ($scope) {
+            $scope.isActive = false;
+            $scope.yundong = function () {
+                $scope.isActive = ! $scope.isActive;
+            }
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <div class="box" ng-class="{active:isActive}"></div>
+    <input type="button" value="执行动画" ng-click="yundong()">
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="itcast" ng-controller="appController">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <link rel="stylesheet" ng-href="{{href}}">
+    <script>
+        //定义应用 指定应用边界 ng-app就是指定应用边界的
+        //ng-src和ng-href都是用来解决发送两次请求的问题的
+        var App = angular.module('itcast',[]);
+        App.controller('appController',['$scope',function ($scope) {
+            $scope.src = './images/author.jpg';
+            $scope.href='./css/main.css'
+        }])
+    </script>
+</head>
+<body>
+    <img ng-src="{{src}}"></img>
+    <li>test</li>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]); //应用是由angular以模块化的方式进行管理 定义应用
+        //ng-app 指定应用名称
+        App.controller('appController',['$scope', function ($scope) {
+            //ng-controller将视图与model关联起来
+            //MVC设计模式
+            $scope.active = true;
+            $scope.change = function (active) {
+               for(var i = 0; i <= 100; i++) {
+                   console.log(i);
+               }
+            } 
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <!-- 为元素添加事件可以使用自带的onclick onblur onfoucs
+    也可以使用angular帮助我们封装约束去编写事件
+    ng-click为当前元素添加点击
+    ng-submit提交
+    ng-keyup表单输入
+    使用ng-添加的事假 事件对应的函数必须绑定在当前视图关联的控制器对应的模型上 -->
+    <input type="button" value="按钮" ng-click="change(active)">
+</body>
+</html>

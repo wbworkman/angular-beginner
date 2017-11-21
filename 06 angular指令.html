@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]);
+        App.controller('appController',['$scope',function ($scope) {
+            $scope.username = 'itcast';
+            $scope.age = '33';
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <!-- 这里会有一个闪烁问题就是先出现{{username}}然后在解析数据
+        新指令ng-bind 实际上它也不能解决这个问题可以用ng-bind-template解决数据
+        要用{{}}包裹起来 如果数据非常复杂这种指令就不合适使用了
+        ng-cloak可以解决这个闪烁问题 这是一个无值指令 但是这个指令angular
+        经过测试并不能解决闪烁问题所以这是一个angular的bug
+    -->
+    <p>{{username}}{{age}}</p> 
+    <p ng-bind="username"></p>
+    <p ng-bind-template="{{username}}{{age}}"></p>
+    <p ng-cloak>{{username}}</p>
+</body>
+</html>

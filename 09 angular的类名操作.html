@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+            color: rgba(1, 1, 1, .4)
+        }
+    </style>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]);
+        App.controller('appController',['$scope',function ($scope) {
+
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <div ng-class="{active: true}">测试</div>
+    <div ng-class="{active: false}">可以吗</div>
+    <!-- ng-class指令 控制为当前元素添加一个类名 
+    其对应到angular内部会编译成一个函数 除了可以接收一个字符串之外还可以接收一个对象
+    通过对象来决定是否为其添加类名 -->
+</body>
+</html>

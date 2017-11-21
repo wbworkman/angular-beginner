@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]); //应用是由angular以模块化的方式进行管理 定义应用
+        //ng-app 指定应用名称 上述表达式返回一个对象 对象提供了一个方法directive(指令)方法
+        App.directive('itCast', function () {
+            //ng-controller将视图与model关联起来
+            //MVC设计模式 自定义指令:当angular内部指令不能实现效果时这个时候可以使用自定义指令
+            //约束
+            return {
+                //是否替换当前的标签
+                replace: true,
+                restrict: 'ECMA', //支持哪几种类型
+                template: '<h1>自定义指令</h1>'
+            }
+        })
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <!-- 一下四种方式皆为不是大写的情况 -->
+    <!-- 第一种方式 使用标签方式 E -->
+    <itcast></itcast>
+    <!-- 第二种方式 类名方式 不是ng-class-->
+    <div class="itcast"></div> 
+    <!-- 第三种方式 注释方式 mark前面需添加一个标记directive: -->
+    <!-- directive:itcast -->
+    <!-- 第四种方式属性方式 -->
+    <div itcast></div>
+    <!-- 一下是大写的情况 -->
+    <!-- 第一种方式 使用标签式 -->
+    <it-cast></it-cast>
+    <!-- 第二种方式类名式 -->
+    <div class="it-cast"></div>
+    <!-- 第三种方式注释 方式  -->
+    <!-- directive:it-cast -->
+    <!-- 第四种方式属性方式 -->
+    <div it-cast></div>
+</body>
+</html>

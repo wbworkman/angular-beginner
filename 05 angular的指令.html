@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]);//返回的是一个函数
+        App.controller('appController',['$scope',function ($scope) {
+            //挂载到$scope ng-reapt指令 遍历数组
+            $scope.list = [
+                {
+                    username: 'itcast',
+                    age: '30'
+                },
+                {
+                    username: 'angualr',
+                    age: '20'
+                }
+            ]
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+        <!-- 每个指令对应到angular到会编译成一个方法即是angularr的api只不过api的形式是以指令
+        的方式给我们提供 -->
+        <tr ng-repeat="item in list">
+            <td>{{item.username}}</td>
+            <td>{{item.age}}</td>
+        </tr>
+    </table>
+</body>
+</html>

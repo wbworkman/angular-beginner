@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./angular.min.js"></script>
+    <script>
+        var App = angular.module('app',[]);
+        App.controller('appController',['$scope',function ($scope) {
+
+        }])
+    </script>
+</head>
+<body ng-app="app" ng-controller="appController">
+    <input type="text" ng-disabled="true">
+    <input type="text" ng-readonly="true">
+    <input type="text" ng-checked="true">
+    <select name="" id="">
+        <option value="">禁选</option>
+        <option value="">禁用</option>
+        <option value="" ng-selected='true'>只读</option>
+    </select>
+</body>
+</html>
